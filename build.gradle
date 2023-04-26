@@ -25,6 +25,7 @@ ext {
     lombokVersion = "1.18.26"
     junitVersion = "5.8.1"
     testcontainersVersion = "1.17.6"
+    mockitoVersion = '5.2.0'
 }
 
 sourceSets {
@@ -45,7 +46,7 @@ dependencies {
     implementation 'org.java-websocket:Java-WebSocket:1.5.3'
 
     // Gson
-    implementation 'com.google.code.gson:gson:2.9.1'
+    implementation 'com.google.code.gson:gson:2.10.1'
 
     // logging
     implementation "org.slf4j:slf4j-api:${slf4jVersion}"
@@ -66,16 +67,13 @@ dependencies {
     testImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     testRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     testImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
-    testImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
-    testImplementation "org.testcontainers:junit-jupiter:${testcontainersVersion}"
+    testImplementation "org.mockito:mockito-core:${mockitoVersion}"
 
     intTestImplementation "org.junit.jupiter:junit-jupiter-api:${junitVersion}"
     intTestRuntimeOnly "org.junit.jupiter:junit-jupiter-engine:${junitVersion}"
     intTestImplementation "org.junit.jupiter:junit-jupiter:${junitVersion}"
     intTestImplementation "org.testcontainers:testcontainers:${testcontainersVersion}"
-    intTestImplementation "org.testcontainers:junit-jupiter:${testcontainersVersion}"
-
-}
+    intTestImplementation "org.testcontainers:junit-jupiter:${testcontainersVersion}" }
 
 spotless {
     ratchetFrom 'origin/main'
