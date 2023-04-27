@@ -24,20 +24,19 @@ class AsyncSurrealDriverTest extends BaseTest {
 
     @Test
     void happyPathSignup() {
-        // given
+        // given a mock connection and some expected values
         var completedFuture = buildCompletedFuture();
         var credentials = getCredentials();
         when(connection.rpc(any(), anyString(), any())).thenReturn(completedFuture);
 
-        // when
+        // when signup is called
         driver.signUp(credentials.namespace(),
             credentials.database(),
             credentials.scope(),
             credentials.username(),
             credentials.password());
 
-
-        // then
+        // then verify that the connection's rpc method is called with the expected args
         verify(connection).rpc(getStringType(), "signup", buildExpectedSignup(credentials));
     }
 }
