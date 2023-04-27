@@ -2,8 +2,8 @@ package com.surrealdb.driver;
 
 import static org.mockito.ArgumentMatchers.any;
 import static org.mockito.ArgumentMatchers.anyString;
-import static org.mockito.Mockito.verify;
-import static org.mockito.Mockito.when;
+import static org.mockito.BDDMockito.given;
+import static org.mockito.BDDMockito.then;
 
 import com.surrealdb.BaseTest;
 import com.surrealdb.connection.SurrealConnection;
@@ -27,9 +27,9 @@ class AsyncSurrealDriverTest extends BaseTest {
         // given a mock connection and some expected values
         var completedFuture = buildCompletedFuture();
         var credentials = getCredentials();
-        when(connection.rpc(any(), anyString(), any())).thenReturn(completedFuture);
+        given(connection.rpc(any(), anyString(), any())).willReturn(completedFuture);
 
-        // when signup is called
+        // when the driver signup is called
         driver.signUp(credentials.namespace(),
             credentials.database(),
             credentials.scope(),
@@ -37,6 +37,6 @@ class AsyncSurrealDriverTest extends BaseTest {
             credentials.password());
 
         // then verify that the connection's rpc method is called with the expected args
-        verify(connection).rpc(getStringType(), "signup", buildExpectedSignup(credentials));
+        then(connection).should().rpc(getStringType(), "signup", buildExpectedSignup(credentials));
     }
 }
