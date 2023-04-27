@@ -19,7 +19,7 @@ public abstract class BaseTest {
         return new Credentials("localhost", 8080, "root", "root", "test", "test", "", "allusers");
     }
 
-    protected SignUp buildSignup(Credentials credentials) {
+    protected SignUp buildExpectedSignup(Credentials credentials) {
         return new SignUp(
             credentials.namespace(),
             credentials.database(),
