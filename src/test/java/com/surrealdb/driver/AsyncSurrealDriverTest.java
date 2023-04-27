@@ -9,11 +9,8 @@ import com.surrealdb.BaseTest;
 import com.surrealdb.connection.SurrealConnection;
 import org.junit.jupiter.api.BeforeEach;
 import org.junit.jupiter.api.Test;
-import org.junit.jupiter.api.extension.ExtendWith;
 import org.mockito.Mock;
-import org.mockito.junit.jupiter.MockitoExtension;
 
-@ExtendWith(MockitoExtension.class)
 class AsyncSurrealDriverTest extends BaseTest {
 
     private AsyncSurrealDriver driver;

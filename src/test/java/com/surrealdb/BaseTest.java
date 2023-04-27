@@ -4,7 +4,10 @@ import com.google.gson.reflect.TypeToken;
 import com.surrealdb.driver.model.SignUp;
 import java.lang.reflect.Type;
 import java.util.concurrent.CompletableFuture;
+import org.junit.jupiter.api.extension.ExtendWith;
+import org.mockito.junit.jupiter.MockitoExtension;
 
+@ExtendWith(MockitoExtension.class)
 public abstract class BaseTest {
 
     protected static CompletableFuture<Object> buildCompletedFuture() {
