@@ -23,7 +23,7 @@ class AsyncSurrealDriverTest extends BaseTest {
     }
 
     @Test
-    void signUp() {
+    void happyPathSignup() {
         // given
         var completedFuture = buildCompletedFuture();
         var credentials = getCredentials();
